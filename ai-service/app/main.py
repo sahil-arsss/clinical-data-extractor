@@ -1,3 +1,9 @@
+from app.services.tesseract_config import configure_tesseract
+
+configure_tesseract()
+#use for configuration for OCR model 
+
+
 from fastapi import FastAPI
 from app.routes.process import router
 
