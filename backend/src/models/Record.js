@@ -21,7 +21,9 @@ const RecordSchema = new mongoose.Schema({
         frequency: [String],
         duration: [String]
     },
-    
+    drugAlerts : {
+        type: [String]
+    },
     createdAt: {
         type: Date,
         default: Date.now

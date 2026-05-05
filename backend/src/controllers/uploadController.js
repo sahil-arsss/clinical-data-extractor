@@ -19,7 +19,8 @@ exports.uploadFile = async (req, res) => {
             patientId,
             filePath,
             rawText: aiResult.raw_text,
-            structuredData: aiResult.structured_data
+            structuredData: aiResult.structured_data,
+            drugAlerts : aiResult.drug_alerts
         });
 
         await newRecord.save();

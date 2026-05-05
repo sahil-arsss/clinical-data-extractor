@@ -36,3 +36,26 @@ exports.getPatientTimeline = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+exports.searchRecords = async (req, res) => {
+    try {
+        const { disease, medicine } = req.query;
+
+        let query = {};
+
+        if (disease) {
+            query["structuredData.diseases"] = disease;
+        }
+
+        if (medicine) {
+            query["structuredData.medicines"] = medicine;
+        }
+
+        const results = await Record.find(query);
+
+        res.json(results);
+
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
