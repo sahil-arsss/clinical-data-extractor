@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const RecordSchema = new mongoose.Schema({
+    patientId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Patient"
+    },
     filePath: {
         type: String,
         required: true
@@ -17,7 +21,7 @@ const RecordSchema = new mongoose.Schema({
         frequency: [String],
         duration: [String]
     },
-
+    
     createdAt: {
         type: Date,
         default: Date.now

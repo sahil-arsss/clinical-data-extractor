@@ -5,7 +5,7 @@ const path = require("path");
 exports.uploadFile = async (req, res) => {
     try {
         const file = req.file;
-
+        const patientId = req.body.patientId;
         if (!file) {
             return res.status(400).json({ message: "No file uploaded" });
         }
@@ -16,6 +16,7 @@ exports.uploadFile = async (req, res) => {
 
      
         const newRecord = new Record({
+            patientId,
             filePath,
             rawText: aiResult.raw_text,
             structuredData: aiResult.structured_data
