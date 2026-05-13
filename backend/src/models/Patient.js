@@ -1,16 +1,25 @@
 const mongoose = require("mongoose");
 
-const PatientSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+const PatientSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        age: {
+            type: Number,
+            required: true
+        },
+        gender: {
+            type: String,
+            enum: ["Male", "Female", "Other"],
+            required: true
+        }
     },
-    age: Number,
-    gender: String,
-    createdAt: {
-        type: Date,
-        default: Date.now
+    {
+        timestamps: true
     }
-});
+);
 
 module.exports = mongoose.model("Patient", PatientSchema);

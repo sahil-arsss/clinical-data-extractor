@@ -1,33 +1,42 @@
 const mongoose = require("mongoose");
 
-const RecordSchema = new mongoose.Schema({
-    patientId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Patient"
-    },
-    filePath: {
-        type: String,
-        required: true
-    },
+const RecordSchema = new mongoose.Schema(
+    {
+        patientId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Patient",
+            required: true
+        },
 
-    rawText: {
-        type: String
-    },
+        filePath: {
+            type: String,
+            required: true
+        },
 
-    structuredData: {
-        diseases: [String],
-        medicines: [String],
-        dosage: [String],
-        frequency: [String],
-        duration: [String]
+        rawText: {
+            type: String
+        },
+
+        structuredData: {
+            diseases: [String],
+            medicines: [String],
+            dosage: [String],
+            frequency: [String],
+            duration: [String]
+        },
+
+        drugAlerts: {
+            type: [String],
+            default: []
+        }
     },
-    drugAlerts : {
-        type: [String]
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    {
+        timestamps: true
     }
-});
+);
+
+RecordSchema.index({ patientId: 1, createdAt: -1 });
+RecordSchema.index({ "structuredData.medicines": 1 });
+RecordSchema.index({ "structuredData.diseases": 1 });
 
 module.exports = mongoose.model("Record", RecordSchema);
