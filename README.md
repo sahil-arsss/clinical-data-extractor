@@ -6,6 +6,16 @@ The system allows users/doctors to upload medical images or PDFs, extracts raw t
 
 ---
 
+# AI-Powered Clinical Data Extraction System
+<img width="835" height="586" alt="image" src="https://github.com/user-attachments/assets/4ee6b6f8-98ff-433a-9d2d-618dab986dfb" />
+
+## System Demo
+<img width="858" height="934" alt="image" src="https://github.com/user-attachments/assets/20deabdd-c852-4567-ab47-dcf2af0a24c4" />
+
+<img width="1805" height="935" alt="image" src="https://github.com/user-attachments/assets/c30e84b5-0c0d-4ba3-a540-9004fcf3de95" />
+
+<img width="1415" height="792" alt="image" src="https://github.com/user-attachments/assets/a1a7c871-19c4-4807-944c-94f91fdf2998" />
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
